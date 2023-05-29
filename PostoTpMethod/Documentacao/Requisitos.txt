@@ -1,0 +1,103 @@
+Requisitos Funcionais:
+
+Acesso ao sistema:
+    Permitir o acesso ao sistema por meio de um login de usuário.
+    Exigir nome de usuário e senha válidos para permitir o acesso às funcionalidades do sistema.
+    Senha deve conter no mínimo 5 caracteres, sendo pelo menos 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial.
+
+
+Cadastrar cliente:
+    Permitir o cadastro de novos clientes, incluindo informações como nome, endereço, telefone, e-mail, etc.
+    Armazenar os dados dos clientes cadastrados para consultas e futuras interações.
+
+Cadastrar fornecedor:
+    Possibilitar o cadastro de fornecedores de combustíveis e outros produtos.
+    Registrar informações relevantes sobre os fornecedores, como nome, contato, endereço, etc.
+
+Cadastro de tipos de combustível:
+    Permitir o registro dos diferentes tipos de combustível disponíveis nos postos.
+    Incluir informações como nome do combustível, descrição, código, etc.
+
+Cadastrar usuários:
+    Permitir o cadastro de usuários do sistema, como funcionários do posto.
+    Coletar informações básicas do usuário, como nome, senha, função, etc.
+    permissões de acesso às funcionalidades do sistema.
+
+Cadastro de combustível:
+    Permitir o cadastro dos combustíveis disponíveis no posto.
+    Registrar informações como tipo de combustível, quantidade em estoque, preço, etc.
+
+Cadastro de bombas:
+    Permitir o cadastro das bombas de combustível disponíveis no posto.
+    Registrar informações como tipo de combustível, quantidade em estoque, preço, etc.
+
+Cadastro de tanques:
+    Permitir o cadastro dos tanques de combustível disponíveis no posto.
+    Registrar informações como tipo de combustível, quantidade em estoque, preço, Limite Máximo e mínimo, etc.
+
+Cadastro de produtos da conveniência:
+    Possibilitar o cadastro dos produtos disponíveis na loja de conveniência do posto.
+    Incluir informações como nome do produto, descrição, preço, quantidade em estoque, etc.
+
+Cadastrar unidade medida para produtos e combustíveis:
+    Permitir o cadastro das unidades de medida para os produtos da conveniência e combustíveis.
+    Exemplos de unidades de medida: litros, quilogramas, unidades, etc.
+
+Controle de entrada e saída de produtos e combustíveis:
+    Registrar as entradas e saídas de produtos e combustíveis no sistema.
+    Manter um registro preciso dos estoques e transações realizadas.
+
+Caixa de venda de produtos da conveniência e pagamento do combustível abastecido na bomba:
+    Permitir que os funcionários registrem as vendas de produtos da conveniência e recebam o pagamento.
+    Realizar o cálculo do valor total da venda e fornecer opções de pagamento.
+
+Limite de estoque de combustível no tanque da bomba:
+    Registrar as entradas e saídas de combustíveis e manter o estoque atualizado.
+    Estabelecer um limite máximo para a quantidade de combustível que pode ser armazenada em cada tanque da bomba.
+    Monitorar o nível de combustível no tanque e emitir alertas quando o limite for atingido.
+
+Limite mínimo de combustível no estoque do tanque:
+    Definir um limite mínimo para a quantidade de combustível que deve ser mantida em estoque em cada tanque da bomba.
+    Emitir alertas quando o estoque atingir ou ficar abaixo desse limite mínimo.
+
+Gerar Relatório diário de vendas da conveniência:
+    Gerar relatórios diários que apresentem as vendas realizadas na loja de conveniência.
+    Incluir informações como valor total das vendas, produtos vendidos, etc.
+
+Gerar Relatório diário de venda de combustível de cada bomba:
+    Gerar relatórios diários que apresentem as vendas de combustível realizadas em cada bomba.
+    Incluir informações como quantidade de combustível vendida, valor total das vendas, tipo de combustível, etc.
+
+Gerar Relatório diário de entrada e saída de cada tanque:
+    Gerar relatórios diários que apresentem as entradas e saídas de combustível em cada tanque.
+    Incluir informações como entrada, saida, tipo de combustível, etc.
+
+Requisitos Não Funcionais:
+
+Segurança:
+    Garantir a segurança dos dados do sistema e das informações dos clientes.
+    Proteger o acesso não autorizado ao sistema por meio de mecanismos de autenticação e controle de permissões.
+
+Desempenho:
+    O sistema deve ser responsivo e rápido no processamento das informações.
+    Lidar eficientemente com grandes volumes de dados, como registros de vendas e transações.
+
+Usabilidade:
+    O sistema deve ser intuitivo e fácil de usar, mesmo para usuários não técnicos.
+    Fornecer uma interface amigável e recursos de ajuda para orientar os usuários nas operações.
+
+Confiabilidade:
+    Garantir que o sistema seja estável e confiável, minimizando falhas e interrupções no funcionamento.
+
+Escalabilidade:
+    O sistema deve ser capaz de lidar com o crescimento futuro, suportando um número crescente de clientes, fornecedores e transações.
+    Permitir a adição de novos recursos e funcionalidades conforme necessário.
+
+Utilizar Template Method:
+    Utilizar o padrão Template Method para implementar o cadastro de clientes, fornecedores, produtos, combustíveis, etc.
+    Definir uma classe abstrata que implemente o algoritmo de cadastro e permita que as subclasses forneçam a implementação específica de cada tipo de cadastro.
+
+Utilizar Linguagem de programação C#:
+    Utilizar a linguagem de programação C# para implementar o sistema.
+    Utilizar o VScode para desenvolver o sistema.
+    Utilizar o .NET Framework para implementar o sistema.

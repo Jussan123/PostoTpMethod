@@ -1,0 +1,108 @@
+Diagrama de Entidade e Relacionamento
+
+
+Table Posto {
+  postoId int [pk]
+  nome varchar(200)
+  CNPJ varchar(20)
+  email varchar(50)
+}
+
+Table Usuario {
+  usuarioId int [pk]
+  nome_usuario varchar(50)
+  senha varchar(255)
+  funcao varchar(20)
+  tipoUsuarioId int [ref: > TipoUsuario.tipoUsuarioId]
+  postoId int [ref: > Posto.postoId]
+}
+
+Table TipoUsuario {
+  tipoUsuarioId int [pk]
+  systemUser varchar(50)
+  permissoes varchar(20)
+}
+
+Table Cliente {
+  clienteId int [pk]
+  nome varchar(50)
+  endereco varchar(100)
+  telefone varchar(50)
+  email varchar(100)
+  dataNasc date
+  dataCadastro datetime
+  postoId int [ref: > Posto.postoId]
+}
+
+Table Fornecedor {
+  fornecedorId int [pk]
+  nome varchar(50)
+  contato varchar(50)
+  endereco varchar(100)
+  dataCadastro datetime
+  postoId int [ref: > Posto.postoId]
+}
+
+Table Transacao {
+  transacaoId int [pk]
+  tipo varchar(20)
+  data_hora datetime
+  quantidade decimal(10,3)
+  postoId int [ref: > Posto.postoId]
+  vendaCombustivelId int [ref: < VendaCombustivel.vendaCombustivelId]
+  vendaConvenienciaId int [ref: < VendaConveniencia.vendaConvenienciaId]
+}
+
+Table VendaCombustivel {
+  vendaCombustivelId int [pk]
+  data_hora datetime
+  quantidade decimal(10,3)
+  valor_total decimal(10,2)
+  bombaId int [ref: < Bomba.bombaId]
+}
+
+Table Bomba {
+  bombaId int [pk]
+  preco decimal
+  tipoCombustivelId int [ref: > TipoCombustivel.tipoCombustivelId]
+}
+
+Table TipoCombustivel {
+  tipoCombustivelId int [pk]
+  nome varchar(50)
+  descricao varchar(255)
+  codigo varchar(255)
+  tanqueId int [ref: < Tanque.tanqueId]
+  unidadeMedidaId int [ref: > UnidadeMedida.unidadeMedidaId]
+}
+
+Table Tanque {
+  tanqueId int [pk]
+  tipoCombustivelId int [ref: > TipoCombustivel.tipoCombustivelId]
+  quantidade_estoque decimal(10,3)
+  preco decimal(10,2)
+  limite_maximo decimal(10,3)
+  limite_minimo decimal(10,3)
+}
+
+Table VendaConveniencia {
+  vendaConvenienciaId int [pk]
+  data_hora datetime
+  valor_total decimal(10,2)
+  produtoConvenienciaId int [ref: < ProdutoConveniencia.produtoConvenienciaId]
+}
+
+Table ProdutoConveniencia {
+  produtoConvenienciaId int [pk]
+  nome varchar(50)
+  descricao varchar(255)
+  preco decimal(10,2)
+  quantidade_estoque int
+  unidadeMedidaId int [ref: > UnidadeMedida.unidadeMedidaId]
+}
+
+Table UnidadeMedida {
+  unidadeMedidaId int [pk]
+  nome varchar(100)
+  sigla varchar(3)
+}

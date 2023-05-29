@@ -1,0 +1,35 @@
+Modelo de Entidade Relacionamento (MER)
+
+Entidades e atributos:
+
+Posto (postoId, nome, CNPJ, email)
+Usuario (usuarioId, nome_usuario, senha, funcao, tipoUsuarioId, postoId)
+TipoUsuario (tipoUsuarioId, systemUser, permissoes)
+Cliente (clienteId, nome, endereco, telefone, email, dataNasc, dataCadastro, postoId)
+Fornecedor (fornecedorId, nome, contato, endereco, dataCadastro, postoId)
+Transacao (transacaoId, tipo, data_hora, quantidade, postoId, vendaCombustivelId, vendaConvenienciaId)
+VendaCombustivel (vendaCombustivelId, data_hora, quantidade, valor_total, bombaId)
+Bomba (bombaId, preco, tipoCombustivelId)
+TipoCombustivel (tipoCombustivelId, nome, descricao, codigo, tanqueId, unidadeMedidaId)
+Tanque (tanqueId, tipo_combustivel_id, quantidade_estoque, preco, limite_maximo, limite_minimo)
+VendaConveniencia (vendaConvenienciaId, data_hora, valor_total, produtoConvenienciaId)
+ProdutoConveniencia (produtoConvenienciaId, nome, descricao, preco, quantidade_estoque, unidadeMedidaId)
+UnidadeMedida (unidadeMedidaId, nome, sigla)
+
+
+Relacionamentos:
+
+Posto possui Usuario (1:N)
+TipoUsuario possui Usuario (1:N)
+Posto possui Cliente (1:N)
+Posto possui Fornecedor (1:N)
+Posto possui Transacao (1:N)
+VendaCombustivel possui Transacao (1:1)
+Bomba possui VendaCombustivel (1:N)
+TipoCombustivel possui Bomba (1:N)
+Tanque possui TipoCombustivel (1:1)
+Tanque possui Transacao (1:N)
+VendaConveniencia possui Transacao (1:1)
+ProdutoConveniencia possui VendaConveniencia (1:N)
+UnidadeMedida possui TipoCombustivel (1:N)
+UnidadeMedida possui ProdutoConveniencia (1:N)

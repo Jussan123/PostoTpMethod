@@ -1,0 +1,105 @@
+Table lojas {
+  id INT [PK]
+  nome VARCHAR(255)
+  endereco VARCHAR(255)
+  telefone VARCHAR(20)
+  email VARCHAR(255)
+}
+
+Table cliente {
+  id_cliente int [pk]
+  nome varchar(255)
+  endereco varchar(255)
+  telefone varchar(20)
+  email varchar(255)
+  loja_id int [ref: > lojas.id]
+}
+
+Table fornecedor {
+  id_fornecedor int [pk]
+  nome varchar(255)
+  contato varchar(20)
+  endereco varchar(255)
+  loja_id int [ref: > lojas.id]
+}
+
+Table tipo_combustivel {
+  id_tipo_combustivel int [pk]
+  nome_combustivel varchar(255)
+  descricao varchar(255)
+  codigo varchar(255)
+}
+
+Table usuario {
+  id_usuario int [pk]
+  nome varchar(255)
+  senha varchar(255)
+  funcao varchar(255)
+  loja_id int [ref: > lojas.id]
+}
+
+Table combustivel {
+  id_combustivel int [pk]
+  id_tipo_combustivel int [ref: > tipo_combustivel.id_tipo_combustivel]
+  quantidade_estoque int
+  preco decimal
+}
+
+Table produto_conveniencia {
+  id_produto int [pk]
+  nome_produto varchar(255)
+  descricao varchar(255)
+  preco decimal(10,2)
+  quantidade_estoque int
+}
+
+Table unidade_medida {
+  id_unidade_medida int [pk]
+  nome_unidade varchar(255)
+  sigla varchar(10)
+}
+
+Table entrada_saida {
+  id_entrada_saida int [pk]
+  id_produto int [ref: > produto_conveniencia.id_produto]
+  id_combustivel int [ref: > combustivel.id_combustivel]
+  id_unidade_medida int [ref: > unidade_medida.id_unidade_medida]
+  quantidade int
+  tipo_operacao enum('entrada', 'saida')
+  data_hora datetime
+  loja_id int [ref: > lojas.id]
+}
+
+Table venda {
+  id_venda int [pk]
+  id_produto int [ref: > produto_conveniencia.id_produto]
+  id_combustivel int [ref: > combustivel.id_combustivel]
+  id_cliente int [ref: > cliente.id_cliente]
+  quantidade int
+  valor_total decimal(10,2)
+  data_hora datetime
+  loja_id int [ref: > lojas.id]
+}
+
+Table bomba {
+  id_bomba int [pk]
+  id_combustivel int [ref: > combustivel.id_combustivel]
+  limite_maximo int
+  loja_id int [ref: > lojas.id]
+}
+
+Table relatorio_diario_conveniencia {
+  id_relatorio_conveniencia int [pk]
+  valor_total_vendas decimal(10,2)
+  data_relatorio date
+  loja_id int [ref: > lojas.id]
+}
+
+Table relatorio_diario_bomba {
+  id_relatorio_bomba int [pk]
+  quantidade_combustivel_vendida int
+  valor_total_vendas decimal(10,2)
+  id_bomba int [ref: > bomba.id_bomba]
+  data_relatorio date
+  loja_id int [ref: > lojas.id]
+}
